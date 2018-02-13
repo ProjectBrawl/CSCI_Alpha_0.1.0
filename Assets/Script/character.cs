@@ -7,9 +7,7 @@ public class character : MonoBehaviour {
     float current_cd=0.0f;
 
     public int id = 1;
-	public int health = 100;
 	public GameObject other;
-	private int current_health;
 	public GameObject projectile;
     Rigidbody rigb;
     Physics phys;
@@ -18,16 +16,7 @@ public class character : MonoBehaviour {
     {
         rigb = this.GetComponentInParent<Rigidbody>();
         phys = this.GetComponentInParent<Physics>();
-        //id = 1;
-		current_health = health; 
     }
-
-	public void GetDamage(int damage)
-	{
-		health -= damage;
-		if (health <= 0)
-			Destroy (other);
-	}
 
 	// Update is called once per frame
 	void Update ()

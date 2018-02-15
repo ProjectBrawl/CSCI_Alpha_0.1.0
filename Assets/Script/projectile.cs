@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class projectile : MonoBehaviour {
     public float lifetime;
-	int damage = 10;
-	PlayerHealth playerHealth;
 	// Use this for initialization
 	void Start ()
     {
@@ -18,16 +16,12 @@ public class projectile : MonoBehaviour {
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 	}
 
-	void OnCollisionEnter (Collider other)
+	void OnCollisionEnter ()
 	{
-		PlayerHealth P = other.GetComponent<PlayerHealth> ();
-		P.TakeDamage (damage);
-		Destroy (gameObject);
+		
 	}
-
-
 }

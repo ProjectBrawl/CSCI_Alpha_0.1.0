@@ -1,27 +1,27 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class projectile : MonoBehaviour {
     public float lifetime;
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    int damage = 10;
+    PlayerHealth playerHealth;
+
+    // Update is called once per frame
+    void Update ()
     {
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
-            Destroy(gameObject);
+        Destroy(this.gameObject);
         }
-	}
+    }
 
-	void OnCollisionEnter ()
-	{
-		
-	}
+    void OnCollisionEnter (Collider other)
+    {
+        PlayerHealth P = other.GetComponent<PlayerHealth> ();
+        P.TakeDamage (damage);
+        Destroy (gameObject);
+    }
+
 }

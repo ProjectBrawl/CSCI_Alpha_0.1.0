@@ -29,15 +29,16 @@ public class GameManager : Singleton<GameManager> {
 	void Update()
 	{
 
-		if(prompt.gameObject.activeSelf == false)
+		if (prompt.gameObject.activeSelf == false) {
 			if (p1 == null && p2 == null) {
 				prompt.gameObject.SetActive (true);
 				prompt.text = "Team 2 win!";
 
 			} else if (p3 == null && p4 == null) {
-			prompt.gameObject.SetActive (true);
+				prompt.gameObject.SetActive (true);
 				prompt.text = "Team 1 win!";
 			}
+		}
 
 
 
